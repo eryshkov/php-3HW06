@@ -62,7 +62,7 @@ class UserSendEmailCommand extends Command
     
         $sendingData = [
             'user_id' => $user->getId(),
-            'template_name' => 'test_template',
+            'template_name' => 'test_template.html.twig',
             'template_params' => [
                 'from' => 'admin',
                 'message' => 'Hello, ',
