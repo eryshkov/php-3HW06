@@ -61,7 +61,7 @@ class UserSendEmailCommand extends Command
         $io->note('Found user with ID: ' . $user->getId());
     
         $sendingData = [
-            'id' => $user->getId(),
+            'user_id' => $user->getId(),
             'template_name' => 'test_template',
             'template_params' => [
                 'from' => 'admin',
@@ -71,7 +71,7 @@ class UserSendEmailCommand extends Command
         
         $data = $this->sendPostRequest($this->appMailServiceURL, json_encode($sendingData));
     
-        dd($data);
+        dd(json_encode($sendingData));
     
         $io->success('User successfully added to queue! Pass --help to see your options.');
     }
