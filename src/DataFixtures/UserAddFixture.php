@@ -12,7 +12,12 @@ class UserAddFixture extends Fixture
     {
         $user = new User();
         
-        $user->setEmail('admin@test.mac');
+        $user->setEmail('eryshkov@gmail.com');
+        $manager->persist($user);
+        
+        $user = new User();
+        
+        $user->setEmail('eryshkov.ios@gmail.com');
         $manager->persist($user);
 
         $manager->flush();

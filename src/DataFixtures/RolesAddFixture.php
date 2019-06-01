@@ -31,7 +31,7 @@ class RolesAddFixture extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $user = $this->userRepository->findOneBy([
-            'email' => 'admin@test.mac',
+            'email' => 'eryshkov@gmail.com',
         ]);
         
         $role = $this->roleRepository->findOneBy([
