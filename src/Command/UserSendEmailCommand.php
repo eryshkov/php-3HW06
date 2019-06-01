@@ -64,7 +64,8 @@ class UserSendEmailCommand extends Command
             'id' => $user->getId(),
             'template_name' => 'test_template',
             'template_params' => [
-            
+                'from' => 'admin',
+                'message' => 'Hello, ',
             ],
         ];
         
