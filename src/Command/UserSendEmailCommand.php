@@ -71,8 +71,6 @@ class UserSendEmailCommand extends Command
         
         $data = $this->sendPostRequest($this->appMailServiceURL, json_encode($sendingData));
     
-        dd(json_encode($sendingData));
-    
         $io->success('User successfully added to queue! Pass --help to see your options.');
     }
     
