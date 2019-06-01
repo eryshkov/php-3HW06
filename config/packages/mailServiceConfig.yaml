@@ -1,2 +1,2 @@
 parameters:
-      app.service_url: 'http://php-3hw06.serv'
+      app.service_url: 'http://php-3hw06.serv/queue/put/user/'
