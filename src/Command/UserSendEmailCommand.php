@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\HttpFoundation\Request;
 
 class UserSendEmailCommand extends Command
 {
@@ -48,9 +49,20 @@ class UserSendEmailCommand extends Command
         ]);
     
         if (!isset($user)) {
-            $io->error('User with ' . $userEmail . ' not found!');
+            $io->error('User with email "' . $userEmail . '" not found!');
+            return;
         }
-
-        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+    
+        $io->note('Found user with ID: ' . $user->getId());
+    
+        $request = Request::create(
+            '/hello-world',
+            'POST',
+            ['ID' => $user->getId()]
+        );
+    
+        
+    
+        $io->success('User successfully added to queue! Pass --help to see your options.');
     }
 }
