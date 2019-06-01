@@ -17,14 +17,19 @@ class UserSendEmailCommand extends Command
      * @var UserRepository
      */
     private $userRepository;
+    /**
+     * @var string
+     */
+    private $appMailServiceURL;
     
     /**
      * UserSendEmailCommand constructor.
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, string $appMailServiceURL)
     {
         parent::__construct(null);
         $this->userRepository = $userRepository;
+        $this->appMailServiceURL = $appMailServiceURL;
     }
     
     protected function configure()
@@ -55,7 +60,15 @@ class UserSendEmailCommand extends Command
     
         $io->note('Found user with ID: ' . $user->getId());
     
-        $data = $this->sendPostRequest('', $data);
+        $sendingData = [
+            'id' => $user->getId(),
+            'template_name' => 'test_template',
+            'template_params' => [
+            
+            ],
+        ];
+        
+        $data = $this->sendPostRequest($this->appMailServiceURL, json_encode($sendingData));
     
         dd($data);
     
