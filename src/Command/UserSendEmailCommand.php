@@ -55,14 +55,26 @@ class UserSendEmailCommand extends Command
     
         $io->note('Found user with ID: ' . $user->getId());
     
-        $request = Request::create(
-            '/hello-world',
-            'POST',
-            ['ID' => $user->getId()]
-        );
+        $data = $this->sendPostRequest('', $data);
     
-        
+        dd($data);
     
         $io->success('User successfully added to queue! Pass --help to see your options.');
+    }
+    
+    protected function sendPostRequest(string $url, string $rawData): string
+    {
+        $c = curl_init($url);
+        curl_setopt($c, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt(
+            $c,
+            CURLOPT_POSTFIELDS,
+            $rawData);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
+    
+        $data = curl_exec($c);
+        curl_close($c);
+    
+        return $data;
     }
 }
