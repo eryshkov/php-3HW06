@@ -3,8 +3,8 @@
 namespace App\Command;
 
 use App\Repository\UserRepository;
-use App\Services\Mailer;
 use Swift_Mailer;
+use Swift_Message;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -41,7 +41,7 @@ class UsersStatsCommand extends Command
         
         $usersCount = $this->userRepository->count([]);
         
-        $message = (new \Swift_Message('Hello Email'))
+        $message = (new Swift_Message('Hello Email'))
             ->setFrom('dwebbo@bk.ru')
             ->setTo('eryshkov@gmail.com')
             ->setBody('You have ' . $usersCount . ' user(s)');
