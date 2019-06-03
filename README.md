@@ -13,6 +13,7 @@
 
 ## Информация для проверяющего
 * выбран фреймворк `Symfony 4`
+* код [микросервиса](https://github.com/eryshkov/php-3HW06.serv)
 * URL до микросервиса должен быть указан [здесь](config/packages/mailServiceConfig.yaml)
 * код постановки заданий на рассылку [здесь](src/Command/UserSendEmailCommand.php)
 * API для получения email по ID пользователя [здесь](src/Controller/GetUserEmailController.php)
