@@ -43,11 +43,6 @@ class User
      */
     private $lastName;
     
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", orphanRemoval=true)
-     */
-    private $tasks;
-    
     public function __construct()
     {
         $this->roles = new ArrayCollection();
