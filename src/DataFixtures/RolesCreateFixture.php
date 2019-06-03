@@ -14,15 +14,15 @@ class RolesCreateFixture extends Fixture implements DependentFixtureInterface
         $roles = [
             'ROLE_ADMIN',
             'ROLE_USER',
-            
+        
         ];
-    
+        
         foreach ($roles as $role) {
             $roleObj = new Role();
             $roleObj->setName($role);
             $manager->persist($roleObj);
         }
-    
+        
         $manager->flush();
     }
     

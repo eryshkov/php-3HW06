@@ -13,9 +13,9 @@ class Mailer extends Swift_Mailer
     protected function validateEmail(string $email): bool
     {
         $regExp = '~^[^.]"?[A-Z0-9._%+-]+"?[^.]@\[?[A-Z0-9.-]+\.[A-Z0-9]{2,}\]?$~iD';
-    
+        
         $result = preg_match($regExp, $email);
-    
+        
         if (1 === $result) {
             return true;
         }

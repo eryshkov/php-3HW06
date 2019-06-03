@@ -37,11 +37,11 @@ class RolesAddFixture extends Fixture implements DependentFixtureInterface
         $role = $this->roleRepository->findOneBy([
             'name' => 'ROLE_ADMIN',
         ]);
-    
+        
         if (!isset($user, $role)) {
             throw new \LogicException('User or role is not found');
         }
-    
+        
         $user->addRole($role);
         
         $manager->persist($user);

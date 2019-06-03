@@ -19,7 +19,7 @@ class UserAddFixture extends Fixture
         
         $user->setEmail('eryshkov.ios@gmail.com');
         $manager->persist($user);
-
+        
         $manager->flush();
     }
 }
