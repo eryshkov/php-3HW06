@@ -13,9 +13,9 @@
 
 ## Информация для проверяющего
 * выбран фреймворк `Symfony 4`
-* для решения задачи №1.1 написан собственный [класс](src/Services/Mailer.php)
-* тест, как решение задачи №1.3 находится [здесь](tests/MailerTests.php)
-* решение задачи №2.4 находится [здесь](src/Entity/User.php)
+* URL до микросервиса должен быть указан [здесь](config/packages/mailServiceConfig.yaml)
+* код постановки заданий на рассылку [здесь](src/Command/UserSendEmailCommand.php)
+* API для получения email по ID пользователя [здесь](src/Controller/GetUserEmailController.php)
 * скрипт сборки проекта находится [здесь](build/production/build.xml)
 * Скрипт сборки проекта должен запускаться из папки с проектом примерно так:
     ```
