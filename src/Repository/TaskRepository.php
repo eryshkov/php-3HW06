@@ -18,6 +18,22 @@ class TaskRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Task::class);
     }
+    
+    /**
+     * @return Task|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getOneFirstUndone(): ?Task
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.status IS NULL')
+            ->orderBy('t.creationDate', 'ASC')
+            ->orderBy('t.id', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 
     // /**
     //  * @return Task[] Returns an array of Task objects

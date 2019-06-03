@@ -64,8 +64,8 @@ class UserSendEmailCommand extends Command
             'user_id' => $user->getId(),
             'template_name' => 'test_template.html.twig',
             'template_params' => [
-                'from' => 'admin',
-                'message' => 'Hello, ',
+                'from' => 'Robot',
+                'message' => 'This message from RoBot',
             ],
         ];
         
